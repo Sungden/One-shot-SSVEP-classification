@@ -79,7 +79,7 @@ def calculate_ssvep_template(dataset_no):
                   int(0.5 * Fs + latencyDelay * Fs):int(0.5 * Fs + latencyDelay * Fs) + 4 * Fs, :]
         elif dataset_no == 2:
             data = loadmat(str_dir + 'S' + str(sn+1) + '.mat')
-            eegdata = data['data']['EEG']
+            eegdata = data['data'][0][0][0]
             data = np.transpose(eegdata, (0, 1, 3, 2))
             eeg = data[ch_used,
                   int(0.5 * Fs + latencyDelay * Fs):int(0.5 * Fs + latencyDelay * Fs) + 2 * Fs, :]
