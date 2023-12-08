@@ -29,9 +29,9 @@ def ck_signal_nh(f, fs, phase, tlen, num_of_harmonics):
 
 def calculate_ssvep_template(dataset_no):
     if dataset_no == 1:
-        str_dir = '/data/yangdeng/data/Bench/'
+        str_dir = '/data/Bench/'
         ch_used =[47, 53, 54, 55, 56, 57, 60, 61,62] # Pz, PO5, PO3, POz, PO4, PO6, O1, Oz, O2
-        sti_f = loadmat("/data/yangdeng/data/Bench/Freq_Phase.mat")['freqs'][0]
+        sti_f = loadmat("/data/Bench/Freq_Phase.mat")['freqs'][0]
         n_sti = len(sti_f)  # number of stimulus frequencies
         target_order = range(n_sti)
         sti_f = sti_f[target_order]
