@@ -224,7 +224,7 @@ for id_name in range(len(name)):
         data_raw = a[:, latencyDelay:latencyDelay + config.T, index_class, :]
         data_raw = data_raw.transpose(2, 3, 0, 1)  # label*block*C*T
         data_fb = filter_bank(data_raw)
-        data_raw = FB_filter(data_raw)
+        #data_raw = FB_filter(data_raw)
         ###GLST estimation
         data1c = np.zeros((data_raw.shape[0], data_raw.shape[1], config.num_class, 2 * config.Nh,data_raw.shape[3]))  # label*block*label*C*T
         ###Non LST
@@ -429,11 +429,11 @@ for id_name in range(len(name)):
         ############################Training block#####################################
         data1c_train = data_raw_test[:, train_runs, :, :]
         data_fb_train = filter_bank(data1c_train)
-        data1c_train = FB_filter(data1c_train)
+        #data1c_train = FB_filter(data1c_train)
         data1c_train_=data1c_train
 
         data1c_train_TDCA= data_raw_test_TDCA[:, train_runs, :, :]
-        data1c_train_TDCA = FB_filter(data1c_train_TDCA)
+        #data1c_train_TDCA = FB_filter(data1c_train_TDCA)
         data1c_train_label = np.arange(config.num_class)
         
         ###GLST estimation
@@ -451,7 +451,7 @@ for id_name in range(len(name)):
         ############################Testing block#####################################
         data1c_test = data_raw_test[:, test_runs, :, :]
         data1c_test_FB = filter_bank(data1c_test)
-        data1c_test = FB_filter(data1c_test)
+        #data1c_test = FB_filter(data1c_test)
         data1c_test_=data1c_test
 
         ###GLST
